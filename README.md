@@ -5,22 +5,18 @@
 пользоваться коллекциями, лучше обойтись исключительно массивами.
 ---
 # Решение задачи:
-- Создание метода `string[] GetArrayStringConsole`
-   >создаем метод для разделения строки из консоли в массив по знаку ","
+> задаем массив `string[] array`
 ```C#
-string[] GetArrayStringConsole (string inConsolSimvol)
-{
-    string[] arraySimvol = new string[inConsolSimvol.Length];
-    arraySimvol = inConsolSimvol.Split(",");
-    return arraySimvol;
-}
+
+string[] array = new string[] {"Hello", "2", "world", ":-)"};
+
 ```
-- Создание метода `string[] GetArrayThreeSimvol`
+- Создание метода `string[] SortedArray`
    >создаем метод сортирующий символы из массива.
 сначала отсчитываем количество, удовлетворяющих требований, для определения длинны нового массива.
 создаем массив по выясненому количествуи заносим туда символы удовлетворяющие требованиям.
 ```C#
-string[] GetArrayThreeSimvol (string[] array)
+string[] SortedArray (string[] array)
 {
     int count = 0;
     for (int i = 0; i < array.Length; i++)
@@ -31,56 +27,56 @@ string[] GetArrayThreeSimvol (string[] array)
             count++;
         }
     }
-    string[] arrayThreeSimvol = new string[count];
+    string[] arraySimvol = new string[count];
     for (int i = 0, j = 0; i < array.Length; i++)
     {
         string simvol = array[i];
         if (simvol.Length <= 3)
         {
-            arrayThreeSimvol[j] = simvol;
+            arraySimvol[j] = simvol;
             j++;
         }
     }
-    return arrayThreeSimvol;
+    return arraySimvol;
 }
 ```
-- Создание метода `void Print`
+- Создание метода ` PrintArray`
    >создаем метод для вывода информации из массивов с использованием цеклического вывода каждого элемента массива.
 ```C#
-void Print (string[] array)
+
+void PrintArray (string[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
-        Console.Write($"{array[i]}, ");
+        Console.Write($"{array[i]}  ");
     }
     Console.WriteLine();
 }
 ```
-## Создаем `"клентский код"` для вызова методов и обработки информации через консоль.
-  >выводим поясняющую информационную строку для пользователя в консоле: "Введите набор символов через знак (,) - ""Введите набор символов через знак (,) - "
+
+## Создаем `" код"` для вызова методов и обработки информации через консоль.
+  >выводим поясняющую информационную строку для пользователя в консоле: " Символы - "
   >- присваиваем введенное в консоле от пользователя символы `string inStringSimvol = console.ReadLine()`
-  >- присваиваем массиву преобразованную строку через метод `string[] arraySimvol = GetArrayStringConsole(inStringSimvol)`
+  >- присваиваем массиву преобразованную строку через метод `string[] array = SortedArray`
   >Console.WriteLine();
-Console.Write("Введенные символы - ");
-Print(GetArrayStringConsole(inStringSimvol));
+Console.Write("Cимволы - ");
+PrintArray(array);
 Console.WriteLine();
-Console.Write("Введенные символы длинной меньше либо равны 3 - ");
-Print(GetArrayThreeSimvol(arraySimvol));
+Console.Write("Введенные символы длинной меньше либо равны 3 -    ");
+PrintArray(SortedArray(array));
 Console.WriteLine();
 ```C#
-Console.Write("Введите набор символов через знак (,) - ");
-string inStringSimvol = Console.ReadLine();
-string[] arraySimvol = GetArrayStringConsole(inStringSimvol);
+
 Console.WriteLine();
-Console.Write("Введенные символы - ");
-Print(GetArrayStringConsole(inStringSimvol));
+Console.Write("Cимволы - ");
+PrintArray(array);
 Console.WriteLine();
-Console.Write("Введенные символы длинной меньше либо равны 3 - ");
-Print(GetArrayThreeSimvol(arraySimvol));
+Console.Write("Введенные символы длинной меньше либо равны 3 -    ");
+PrintArray(SortedArray(array));
 Console.WriteLine();
 ```
+
 # **END**
+
 ---
----
----
-# Файл с диаграммой работы написанной `"программы"` решения задачи
+
